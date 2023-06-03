@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3><a th:href="@{/posts}">black List</a></h3>
+
+
+<form th:action="@{/posts/create}" th:object="${posts}" method="post"  >
+
+        <label>Id</label>
+    <input type="number" th:field="*{id}">
+        <label>Title</label>
+    <input type="text" th:field="*{title}">
+        <label>content</label>
+    <input type="text" th:field="*{content}">
+        <label>created Date</label>
+    <input type="text" th:field="*{createdDate}">
+    <input type="submit" value="Save">
+
+</form>
+
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3><a th:href="@{/posts}">black List</a></h3>
+
+<table border="1px">
+    <tr>
+        <td>Id</td>
+        <td>Title</td>
+        <td>content</td>
+        <td>created Date</td>
+    </tr>
+    <tr>
+        <td th:text="${posts.id}"></td>
+        <td th:text="${posts.title}"></td>
+        <td th:text="${posts.content}"></td>
+        <td th:text="${posts.createdDate}"></td>
+    </tr>
+</table>
+</body>
+</html>

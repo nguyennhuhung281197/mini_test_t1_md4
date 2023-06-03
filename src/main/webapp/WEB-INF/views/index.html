@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Article List</h1>
+<h3><a th:href="@{/posts/create}">Add Posts</a></h3>
+
+<form th:action="@{/posts/search}"  method="get">
+<input type="text" name="search">
+<input type="submit" value="Search">
+</form>
+
+<h4><span style="color: red" th:text="${resultEdit}"></span></h4>
+<h4><span style="color: red" th:text="${resultDelete}"></span></h4>
+
+
+<table border="1px">
+    <tr>
+        <td>Id</td>
+        <td>Title</td>
+        <td>Content</td>
+        <td>Created Date</td>
+    </tr>
+    <tbody>
+    <tr th:each="row : ${posts}">
+        <td th:text="${row.getId()}"></td>
+        <td th:text="${row.getTitle()}"></td>
+        <td th:text="${row.getContent()}"></td>
+        <td th:text="${row.getCreatedDate()}"></td>
+        <td><a th:href="@{/posts/{id}/edit(id=${row.getId()})}">Edit</a></td>
+        <td><a th:href="@{/posts/{id}/delete(id=${row.getId()})}">Delete</a></td>
+        <td><a th:href="@{/posts/{id}/view(id=${row.getId()})}">View</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
